@@ -33,37 +33,6 @@
     margin: 0px 310px 0px 200px; 
 }
 
-//COMMENTED ALL THIS CODE
-// .tab button {
-//   background-color: inherit;
-//   float: left;
-//   border: 1px lightslategray;
-//   outline: none;
-//   cursor: pointer;
-//   padding: 14px 16px;
-//   transition: 0.3s;
-//   font-size: 17px;
-// }
-
-// /* Change background color of buttons on hover */
-// .tab button:hover {
-//   background-color: #ddd;
-// }
-
-// /* Create an active/current tablink class */
-// .tab button.active {
-//   background-color: #ccc;
-// }
-
-/* Style the tab content */
-// .tabcontent {
-//   display: flex;
-//   padding: 6px 12px;
-//   border: 1px solid #ccc;
-//   border-top: none;
-//   margin: 70px 358px 70px 358px;
-// }
-
 .container{
   display: flex;
 }
@@ -100,6 +69,10 @@ background-color: white;
 .d-flex{
  border: 0px;
  color: black;
+}
+
+.alert-secondary{
+  height: 70px;
 }
 
 #spin:active{
@@ -140,7 +113,7 @@ border-left: white;
 }
 
 #delete-btn{
- cursor: pointer;
+  cursor: pointer;
  background-color:lightgray;
 }
 

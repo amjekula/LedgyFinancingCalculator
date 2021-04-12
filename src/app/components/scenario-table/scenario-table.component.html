@@ -2,10 +2,10 @@
   <html lang="eng">
 
     <head>
-      <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
     </head>
 
@@ -32,7 +32,10 @@
                       <br><br>
                         <div class="d-flex justify-content-end align-items-center mb-4" style="margin-right: 15px;">
                           <div class="d-flex">
+                            
                             <div class="d-inline dropdown">
+
+                              
 
                               <button type="button" aria-haspopup="true" aria-expanded="false" role="option" data-toggle="dropdown"
                                         class="btn-secondary dropdown-toggle" mat-raised-button color="primary">
@@ -64,13 +67,39 @@
                               </div>
                             </div>
                   
-                            <button [disabled]="tabs.length === 1" (click)="removeTab(index)" type="button" title="Delete round" id="delete-btn" 
-                                      class="ml-1 border border-secondary-hover btn btn-secondary" style="height: 37px; width: 40px;"
-                                        [disabled]="tabs.length === 1" (click)="removeTab(index)">
-                              <i class="fa fa-trash fa-lg" ></i>
+                            <button title="Delete round" (click)="onPress()" id="delete-btn" class="ml-1 border border-secondary-hover btn btn-secondary" style="height: 37px; width: 40px;">
+                              <i class="fa fa-trash fa-lg"></i>
                                     <!-- <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index)">
                                       Delete Tab</button> -->
-                              <app-confirm-delete *ngIf="display"></app-confirm-delete>
+                              
+                                      <div tabindex="-1" *ngIf="display" style="position: relative; z-index: 150; display: block">
+                                        <div class="">
+                                          <div class="modal fade show" role="dialog" tabindex="-1" style="display: block">
+                                            <div class="modal-dialog modal-original modal-sm" role="document">
+                                              <div class="modal-content">
+                                                <div class="pr-2 modal-header">
+                                                  <h5 class="modal-title">Delete round</h5>
+                                                  <button type="button" class="close" aria-label="Close">
+                                                    <span aria-hidden="true">x</span>
+                                                  </button>
+                                                </div>
+                                                <div class="animated fadeIn">
+                                                  <div class="modal-body">Are you sure?</div>
+                                                  <div class="modal-footer">
+                                                    <form>
+                                                      <button type="submit" class="btn btn-success" [disabled]="tabs.length === 1" (click)="removeTab(index)">
+                                                        Confirm
+                                                      </button>
+                                                    </form>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="modal-backdrop modal-backdrop-blank fade show"></div>
+                                        </div>
+                                      </div>
+                              <!-- <app-confirm-delete *ngIf="display"></app-confirm-delete> -->
                             </button>
                   
                           </div>
@@ -135,7 +164,7 @@
                                   <div class="my-auto col-sm-8 col-md-9 col-xl-10" >
                                     <p class="mb-0" id="table-info">
                                       <i class="fa fa-line-chart" aria-hidden="true"></i> 
-                                          Add outstanding convertibles, new investments, and employee pools by clicking + Add </p>
+                                          Add outstanding convertibles, new investments, and employee pools by clicking<br> + Add </p>
                                   </div>
                                   <div class="d-none d-sm-flex justify-content-center col-sm-4 col-md-3 col-xl-2">
                                     <img class="curved-arrow--scenarios" src="https://cdn.ledgy.com/img/arrow-blue.png" alt="click on the button"/>
