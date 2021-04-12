@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <html lang="eng">
+
+    <head>
+      <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+    </head>
+
+    
+    <body style="overflow-wrap: break-word; hyphens: auto;"> 
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        
+        <div class="col-md-8">
+          
+          <div class="card">
+            <div class="card-header">
+                <div title="Click to rename" style="width: fit-content;" class="pointer form-control" contenteditable="true">
+                  <strong>Financing Scenario</strong></div>
+              </div>
+            <div class="card-body">
+        
+            <mat-tab-group class="card tab-card" [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" oTabGroup="ontimize" [@.disabled]="true">
+                  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" style="width: fit-content;">
+                    <!-- <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index)">
+                            Delete Tab</button> -->
+
+                      <app-scenario-table-template></app-scenario-table-template>
+                  </mat-tab>
+      
+                  <mat-tab>
+                    <ng-template mat-tab-label>
+                      <a mat-button [matMenuTriggerFor]="menu"><i class="fa fa-plus align-items-center" style="color: darkgray;"></i></a>
+                      <mat-menu #menu="matMenu" >
+                        <a mat-button (click)="addTab(selectAfterAdding.checked)">Financing Round</a>
+                      </mat-menu>
+                      
+                      <!-- <button mat-raised-button class="example-add-tab-button" (click)="addTab(selectAfterAdding.checked)">
+                        <i class="fa fa-plus align-items-center" style="color: darkgray;"></i>
+                      </button> -->
+                    </ng-template>
+                </mat-tab>
+
+                <mat-checkbox  #selectAfterAdding ></mat-checkbox>
+            </mat-tab-group>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+<html>
