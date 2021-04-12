@@ -23,19 +23,19 @@
             <tr id="mainTable" mdbTableCol *ngFor="let shared of sharedElements; let id = index" [ngSwitch]="shared.id">
             <td class="selectable" mdbInput>
               <div class="editable-cell" [hidden]="editCell === shared.id" (click)="startEdit(shared.id)"> {{shared.stakeholder}}</div>
-              <input mdbInput class="form-control" id="table-input" (click)="incrementCounter()" [hidden]="editCell !== shared.id" type="text" name="stakeholder" [(ngModel)]="shared.stakeholder" style="text-align: center;"
+              <input mdbInput class="form-control" id="table-input" (click)="incrementCounter()" [hidden]="editCell !== shared.id" type="text" name="stakeholder" [(ngModel)]="shared.stakeholder" style="text-align: left;"
                       (blur) = "stopEdit()" />
             </td>
 
             <td class="selectable" mdbInput>
               <div class="editable-cell" [hidden]="editCell === shared.id" (click)="startEdit(shared.id)"> {{shared.shares.toLocaleString()}}</div>
-              <input mdbInput class="form-control" id="table-input" (click)="incrementCounter()" [hidden]="editCell !== shared.id" type="number" name="stakeholder" [(ngModel)]="shared.shares" style="text-align: center;"
+              <input mdbInput class="form-control" id="table-input" (click)="incrementCounter()" [hidden]="editCell !== shared.id" type="number" name="stakeholder" [(ngModel)]="shared.shares" style="text-align: left;"
                       (blur) = "stopEdit()"/>
             </td>
 
             <td class="selectable" mdbInput>
               <div class="editable-cell" [hidden]="editCell === shared.id" (click)="startEdit(shared.id)"> {{shared.investment.toLocaleString(undefined, {minimumFractionDigits: 2})}}</div>
-              <input mdbInput class="form-control" id="table-input" (click)="incrementCounter()" [hidden]="editCell !== shared.id" type="number" name="stakeholder" [(ngModel)]="shared.investment" style="text-align: center;"
+              <input mdbInput class="form-control" id="table-input" (click)="incrementCounter()" [hidden]="editCell !== shared.id" type="number" name="stakeholder" [(ngModel)]="shared.investment" style="text-align: left;"
                       (blur) = "stopEdit()"/>
             </td>
             </tr>
