@@ -27,105 +27,101 @@
               <div class="tab-pane active" id="series-a">
         
             <mat-tab-group class="card tab-card" [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" oTabGroup="ontimize" [@.disabled]="true">
-                  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" style="width: fit-content;">
-                    <!-- <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index)">
-                            Delete Tab</button> -->
-                              <div  style="margin-left: 20px; margin-right: 20px;">
-                                <br><br>
-                                <div class="d-flex justify-content-end align-items-center mb-4" style="margin-right: 15px;">
-                                  <div class="d-flex">
-                                    <div class="d-inline dropdown">
+                  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" style="width: fit-content;" >
+                    <div  style="margin-left: 20px; margin-right: 20px;">
+                      <br><br>
+                        <div class="d-flex justify-content-end align-items-center mb-4" style="margin-right: 15px;">
+                          <div class="d-flex">
+                            <div class="d-inline dropdown">
 
-                                      <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
-                                                class="btn-secondary dropdown-toggle" mat-raised-button color="primary">
-                                        <i id="add-btn" class="fa fa-plus mr-2"></i>Add
-                                      </button>
-                                      <div id="Overflow" tabindex="-1" role="menu" aria-hidden="" class="fadeIn adjust-left adjust-top dropdown-menu dropdown-menu-right">
-                                        <h6 id="trigger-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Trigger convertibles </h6>
+                              <button type="button" aria-haspopup="true" aria-expanded="false" role="option" data-toggle="dropdown"
+                                        class="btn-secondary dropdown-toggle" mat-raised-button color="primary">
+                                <i id="add-btn" class="fa fa-plus mr-2"></i>Add
+                              </button>
+                              <div id="Overflow" tabindex="-1" role="menu" aria-hidden="" class="fadeIn adjust-left adjust-top dropdown-menu dropdown-menu-right">
+                                <h6 id="trigger-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Trigger convertibles </h6>
                   
-                                        <button id="convertible-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
-                                          <small>New convertible</small>
-                                        </button>
-                  
-                                        <h6 id="invest-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Investment </h6>
-                                        <button id="add-inv-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
-                                          <small>Add investment</small> 
-                                        </button>
-                  
-                                        <button id="rata-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
-                                          <small>Pro-rata investment</small>
-                                        </button>
-                  
-                                        <h6 id="percent-id" tabindex="-1" class="d-flex align-items-center dropdown-header">Fixed percentage</h6>
-                                    
-                                        <button id="pool-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item"><small>Add Pool</small></button>
-                                        <button id="add-perc-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
-                                          <small>Add investment by percentage</small>
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </div>
-                  
-                                  <button [disabled]="tabs.length === 1" (click)="removeTab(index)" type="button" title="Delete round" id="delete-btn" 
-                                          class="ml-1 border border-secondary-hover btn btn-secondary" style="height: 37px; width: 40px;"
-                                          [disabled]="tabs.length === 1" (click)="removeTab(index)">
-                                    <i class="fa fa-trash fa-lg" ></i>
-                                    <!-- <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index)">
-                                      Delete Tab</button> -->
-                                    <app-confirm-delete *ngIf="display"></app-confirm-delete>
+                                  <button id="convertible-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                                    <small>New convertible</small>
                                   </button>
                   
-                                </div>
-                                <div>
-                                  <div class="calculator-tour-step-3 row" >
-                                    <div class="col-12 col-sm-6 col-lg-3">
-                                      <div class="form-group">
+                                  <h6 id="invest-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Investment </h6>
+                                  <button id="add-inv-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                                    <small>Add investment</small> 
+                                  </button>
                   
-                                        <form class="input-group" style="width: 130px; margin-left: 40px;">
-                                          <label >Pre-money valuation</label>
-                                          <div class="input-container">
-                                            <div class="input-group-prepend">
-                                              <span class="input-group-text" style="height: 40px;">EUR</span>
-                                            </div>
-                                          <input class="input-field form-control" type="number" placeholder="Valuation" style="height: 40px; width: 100px;">
-                                          <div class="input-group-append">
-                                            <button type="button" style="align-items: center; height: 40px; width: 60px;" class="btn-append border border-secondary-hover btn btn-secondary">Pre</button>
-                                          </div>
-                                          </div>
-                                        </form>
+                                  <button id="rata-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                                    <small>Pro-rata investment</small>
+                                  </button>
+                  
+                                  <h6 id="percent-id" tabindex="-1" class="d-flex align-items-center dropdown-header">Fixed percentage</h6>
+                                    
+                                  <button id="pool-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item"><small>Add Pool</small></button>
+                                  <button id="add-perc-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                                    <small>Add investment by percentage</small>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                  
+                            <button [disabled]="tabs.length === 1" (click)="removeTab(index)" type="button" title="Delete round" id="delete-btn" 
+                                      class="ml-1 border border-secondary-hover btn btn-secondary" style="height: 37px; width: 40px;"
+                                        [disabled]="tabs.length === 1" (click)="removeTab(index)">
+                              <i class="fa fa-trash fa-lg" ></i>
+                                    <!-- <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index)">
+                                      Delete Tab</button> -->
+                              <app-confirm-delete *ngIf="display"></app-confirm-delete>
+                            </button>
+                  
+                          </div>
+                        <div>
+                          <div class="calculator-tour-step-3 row" >
+                            <div class="col-12 col-sm-6 col-lg-3">
+                              <div class="form-group">
+                  
+                                <form class="input-group" style="width: 130px; margin-left: 40px;">
+                                  <label >Pre-money valuation</label>
+                                  <div class="input-container">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" style="height: 40px;">EUR</span>
+                                    </div>
+                                    <input class="input-field form-control" type="number" placeholder="Valuation" style="height: 40px; width: 100px;">
+                                      <div class="input-group-append">
+                                        <button type="button" style="align-items: center; height: 40px; width: 60px;" class="btn-append border border-secondary-hover btn btn-secondary">Pre</button>
                                       </div>
                                     </div>
+                                  </form>
+                                </div>
+                              </div>
                   
-                                    <div class="col-12 col-sm-6 col-lg-3">
-                                      <form class="input-group" style="margin-left: 50px;">
-                                        <label class="">Target round size</label>
-                                        <div class="input-container">
-                                          <div class="input-group-prepend">
-                                            <span class="input-group-text" style="height: 40px;">EUR</span>
-                                          </div>
-                                        <input class="input-field form-control" type="number" placeholder="Valuation" style="height: 40px; width: 150px;">
-                                        </div>
-                                      </form>
+                              <div class="col-12 col-sm-6 col-lg-3">
+                                <form class="input-group" style="margin-left: 50px;">
+                                  <label class="">Target round size</label>
+                                  <div class="input-container">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" style="height: 40px;">EUR</span>
                                     </div>
-                  
-                                    <div class="col-12 col-sm-6 col-lg-3">
-                                      <div class="form-group" style="margin-left: 50px;">
-                                      <label class="">Share class</label>
-                  
-                                      <select class="mdb-select md-form form-control" style="height: 40px; width: 200px;">
-                                        <option class="form-group" disabled selected>Select...</option>
-                                        <option class="form-group" value="1" style="height: 140px; width: 150px;">Preferred</option>
-                                      </select>
-                                    </div>
+                                    <input class="input-field form-control" type="number" placeholder="Valuation" style="height: 40px; width: 150px;">
                                   </div>
+                                </form>
+                              </div>
+                  
+                              <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="form-group" style="margin-left: 50px;">
+                                  <label class="">Share class</label>
+                  
+                                  <select class="mdb-select md-form form-control" style="height: 40px; width: 200px;">
+                                    <option class="form-group" disabled selected>Select...</option>
+                                      <option class="form-group" value="1" style="height: 140px; width: 150px;">Preferred</option>
+                                  </select>
+                                </div>
+                              </div>
                   
                                 <div class="col-12 col-sm-6 col-lg-3"> 
                                   <div class="form-group" >
-                                    
                                     <div class="react-datepicker-wrapper">
                                       <div class="react-datepicker__input-container">
                                         <div class="md-form">
-                                          
                                           <label class="" style="margin-left: 21px;">Expected closing date</label>
                                           <input placeholder="Date" type="date" id="input" class="unstyled form-control" style="height: 40px; width: 180px; margin-left: 21px;" >
                                         </div>
@@ -139,15 +135,13 @@
                                   <div class="my-auto col-sm-8 col-md-9 col-xl-10" >
                                     <p class="mb-0" id="table-info">
                                       <i class="fa fa-line-chart" aria-hidden="true"></i> 
-                                        Add outstanding convertibles, new investments, and employee pools by clicking + Add </p>
+                                          Add outstanding convertibles, new investments, and employee pools by clicking + Add </p>
                                   </div>
                                   <div class="d-none d-sm-flex justify-content-center col-sm-4 col-md-3 col-xl-2">
                                     <img class="curved-arrow--scenarios" src="https://cdn.ledgy.com/img/arrow-blue.png" alt="click on the button"/>
                                   </div>
                                 </div>
                                 <br>
-                  
-                                
                             </div>
                           </div>
                   </mat-tab>
@@ -167,9 +161,7 @@
 
                 <mat-checkbox  #selectAfterAdding ></mat-checkbox>
             </mat-tab-group>
-
           </div>
-
           </div>
         </div>
       </div>
