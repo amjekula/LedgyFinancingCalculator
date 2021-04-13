@@ -227,3 +227,26 @@ border-top: 0;
   display: inline;
   padding-left: 55px;
 }
+
+.btn-blank{
+  width: fit-content;
+  height: fit-content;
+  flex-wrap: wrap;
+  background-color: rgb(163, 228, 233);
+  cursor: pointer;
+}
+
+.btn-blank:hover{
+  background-color: white;
+}
+
+.investor-name{
+  padding-left:  55px;
+  margin-top:  -355px;
+}
+
+// .secondary-table{
+//   display: inline;
+//   padding-left: 220px;
+// }
+

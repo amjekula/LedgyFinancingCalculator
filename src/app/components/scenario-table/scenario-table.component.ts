@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { RandomColor } from 'angular-randomcolor';
+
 @Component({
   selector: 'app-scenario-table',
   encapsulation: ViewEncapsulation.None,
@@ -16,9 +18,29 @@ export class ScenarioTableComponent implements OnInit {
   public tabId:string = "unnamed-tab";
   public active:boolean = false;
 
+
+  public showText:boolean =false;
+
   public tabStatus: string = 'active';
   
   ngOnInit(): void {
+  }
+
+  public showTextBtn():string{
+    this.showText = !this.showText;
+    if(this.showText == false){
+      return "Pre";
+    }else{
+      return "Post";
+    }
+  }
+
+  public showLabel():string{
+    if(this.showText == false){
+      return "Post-money valuation";
+    }else{
+      return "Pre-money valuation";
+    }
   }
 
   activateTab(){
@@ -63,4 +85,5 @@ export class ScenarioTableComponent implements OnInit {
   removeTab(index: number) {
     this.tabs.splice(index, 1);
   }
+
 }

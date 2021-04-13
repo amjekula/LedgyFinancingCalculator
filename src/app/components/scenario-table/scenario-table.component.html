@@ -11,7 +11,7 @@
 
     <br><br><br><br><br><br>
     
-    <body style="overflow-wrap: break-word; hyphens: auto;"> 
+    <body style="overflow-wrap: break-word; hyphens: auto; "> 
       <div class="row">
         <div class="col-md-2">
         </div>
@@ -24,21 +24,21 @@
                   <strong>Financing Scenario</strong></div>
               </div>
             <div class="card-body">
-              <div class="tab-pane active" id="series-a">
+              <div class="tab-pane active" id="series-a" style="overflow: hidden;">
         
             <mat-tab-group class="card tab-card" [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" oTabGroup="ontimize" [@.disabled]="true">
                   <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" style="width: fit-content; ">
                     <div  style="margin-left: 20px; margin-right: 20px;">
                       <br><br>
-                        <div class="d-flex justify-content-end align-items-center mb-4" style="margin-right: 15px;">
-                          <div class="d-flex">
+                        <div class="d-flex justify-content-end align-items-center mb-4" style="margin-right: 15px; ">
+                          <div class="d-flex" >
                             
                             <div class="d-inline dropdown ">
-                              <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
+                              <button type="button" aria-haspopup="true"  aria-expanded="false" data-toggle="dropdown"
                                         class="btn-primary dropdown-toggle" mat-raised-button color="primary" (click)="toggle()">
-                                <i id="add-btn" class="fa fa-plus mr-2"></i>Add
+                                <i id="add-btn" class="fa fa-plus mr-2" ></i>Add
                               </button>
-                              <div id="Overflow" *ngIf="show" tabindex="-1" class="fadeIn adjust-left adjust-top dropdown-menu-right dropdown-menu show" style="left: -178px;">
+                              <div id="Overflow" *ngIf="show" tabindex="-1" class="fadeIn adjust-left adjust-top dropdown-menu-right dropdown-menu show" style="left: -178px; ">
                                 <h6 id="trigger-id" tabindex="-1" class="d-flex align-items-center dropdown-header" (click)="toggle()"> Trigger convertibles </h6>
                   
                                   <button (click)="showConvertable()" id="convertible-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
@@ -105,15 +105,16 @@
                             <div class="col-12 col-sm-6 col-lg-3">
                               <div class="form-group">
                   
-                                <form class="input-group" style="width: 130px; margin-left: 40px;">
-                                  <label >Pre-money valuation</label>
+                                <form class="input-group" style="width: 135px; margin-left: 40px;">
+                                  <label>{{showLabel()}}</label>
                                   <div class="input-container">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text" style="height: 40px;">EUR</span>
                                     </div>
                                     <input class="input-field form-control" type="number" placeholder="Valuation" style="height: 40px; width: 100px;">
                                       <div class="input-group-append">
-                                        <button type="button" style="align-items: center; height: 40px; width: 60px;" class="btn-append border border-secondary-hover btn btn-secondary">Pre</button>
+                                        <button (click)="showTextBtn()" type="button" style="align-items: center; height: 40px; width: 60px;"
+                                                 class="btn-append border border-secondary-hover btn btn-secondary">{{showTextBtn()}}</button>
                                       </div>
                                     </div>
                                   </form>
@@ -186,7 +187,7 @@
                               </div>
 
                   
-                                <div class="d-flex mt-3 mb-0 alert alert-secondary fade show" id="info-container" role="alert" style="margin-right: 20px; margin-left: 30px;">
+                                <div  *ngIf="active" class="d-flex mt-3 mb-0 alert alert-secondary fade show" id="info-container" role="alert" style="margin-right: 20px; margin-left: 30px;">
                                   <div class="my-auto col-sm-8 col-md-9 col-xl-10" >
                                     <p class="mb-0" id="table-info">
                                       <i class="fa fa-line-chart" aria-hidden="true"></i> 
@@ -197,6 +198,39 @@
                                   </div>
                                 </div>
                                 <br>
+                            </div>
+                          </div>
+
+                          <table class="table-responsive-xl calculator-tour-step-6 table justify-content-center"  style="align-content: space-between;">
+                            <thead>
+                              <tr>
+                                <th scope="col" class="text-right" style="padding-left: 290px; ">
+                                    Investment (EUR)<a type="button" title="Sort by investment"
+                                      class="btn-blank text-muted ml-1 border border-secondary-hover btn-secondary">
+                                      <i class="fa fa-sort-numeric-asc" title="Sort by investment" aria-hidden="true"></i></a></th>
+                                <th scope="col" style="padding-left: 110px; padding-right: 20px;" class="text-right">Percentage (%)</th>
+                                <th scope="col" style="padding-left: 30px;" class="text-right">Issue price (EUR)</th>
+                                <th scope="col" style="padding-right: 90px;" class="text-right">Number of shares</th>
+                              </tr>
+                            </thead>
+                          </table> 
+
+                          <p class="investor-name" ><strong>Investments</strong></p>
+                                      
+                          <div class="d-flex align-items-center form-control" > 
+                            <button type="button" id="How-is-this-calculated?" class="d-block btn-dynamic-chevron py-2 px-0 btn btn-white" (click)="toggle()">
+                              <i class="fa fa-chevron-circle-right text-muted ml-1 mr-2 rotate down90" id="spin"></i>How is this calculated?
+                            </button>
+                          </div>
+              
+                          <div class="collapse show" *ngIf="!show">
+                            <div class="alert alert-light show" role="alert">
+                              <ul class="pl-3">
+                                <li><strong>Total round size</strong> is the sum of all actual investments</li>
+                                <li>The number of shares is <strong>rounded down</strong>.</li>
+                                <li><strong>Percentage</strong> includes new and already held shares.</li>
+                                <li>You can adjust these round modeling calculations in<i>Settings </i><i class="fa fa-cog"></i></li>
+                              </ul>
                             </div>
                           </div>
                   </mat-tab>
@@ -214,6 +248,8 @@
                     </ng-template>
                 </mat-tab>
                 <!-- <mat-checkbox  #selectAfterAdding ></mat-checkbox> -->
+
+                
             </mat-tab-group>
           </div>
           </div>

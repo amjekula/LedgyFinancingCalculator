@@ -64,6 +64,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
 //Bootstrap Root Module
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
+//Random color
+import { RandomcolorModule } from 'angular-randomcolor';
+
 //Components
 import { PreRoundCapTableComponent } from './components/pre-round-cap-table/pre-round-cap-table.component';
 import { SharedService } from './shared/shared.service';
@@ -87,6 +90,7 @@ import { ConfirmDeleteComponent } from './components/scenario-table/confirm-dele
     ConfirmDeleteComponent
   ],
   imports: [
+    RandomcolorModule,
     TabsModule.forRoot(),
     BrowserModule,
     AppRoutingModule,

@@ -22,9 +22,11 @@
                 <tr mdbTableCol *ngFor="let shared of sharedElements">
                   <td> {{shared.stakeholder}} <small id="" class="d-block text-muted">Common</small> </td>
                   <td><div id="shares-percentage" >{{(shared.shares/getTotalShares() * 100).toFixed(2)}}</div> 
-                    <div class="progress progress-sm">
-                    <div class="progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="100" 
-                          style="width: {{ (shared.shares/getTotalShares()) * 100 }}%; background-color: rgb(229, 197, 52)"></div>
+                    <div class="progress progress-sm" style="height: 10px;">
+                    <div class="progress-bar"  role="progressbar" aria-valuemin="1" aria-valuemax="100"
+                         rcRandomColor [bgColor]="['rgb(229, 197, 52)', 'rgb(159, 197, 77)', 'rgb(94, 189, 113)',
+                                                   'rgb(17, 175, 144)', 'rgb(0, 75, 103)', 'rgb(16, 52, 78)']" 
+                          style="width: {{ (shared.shares/getTotalShares()) * 100 }}%;"></div>
                     </div>
                   </td>
                   <td class="text-right"><div class="mb-1" aria-valuemin="1" aria-valuemax="100">{{shared.shares.toLocaleString()}}</div></td>
