@@ -202,7 +202,7 @@
                             </div>
                           </div>
 
-                          <table class="table-responsive-xl calculator-tour-step-6 table justify-content-center"  style="align-content: space-between;">
+                          <table class="table-responsive-xl calculator-tour-step-6  justify-content-center" >
                             <thead>
                               <tr>
                                 <th scope="col" class="text-right" style="padding-left: 290px; ">
@@ -216,7 +216,10 @@
                             </thead>
                           </table> 
 
-                          <p class="investor-name" ><strong>Investments</strong></p>
+                          <br>
+                          <div class="investor-container">
+                            <p class="investor-name" ><small><b>Investments</b></small></p>
+                          </div>
                                       
                           <div class="d-flex align-items-center form-control" > 
                             <button type="button" id="How-is-this-calculated?" class="d-block btn-dynamic-chevron py-2 px-0 btn btn-white" (click)="toggle()">
@@ -234,11 +237,11 @@
                               </ul>
                             </div>
                           </div>
-                          <br>
+                          <br><br>
                   </mat-tab>
       
-                  <mat-tab disabled>
-                    <ng-template mat-tab-label>
+                  <mat-tab disabled style="width: fit-content;">
+                    <ng-template mat-tab-label >
                       <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-plus align-items-center" style="color: darkgray; box-sizing: content-box; position: relative;"></i></button>
                       <mat-menu #menu="matMenu" >
                         <button mat-menu-item #selectAfterAdding (click)="addTab()">Financing Round</button>
@@ -250,8 +253,6 @@
                     </ng-template>
                 </mat-tab>
                 <!-- <mat-checkbox  #selectAfterAdding ></mat-checkbox> -->
-
-                
             </mat-tab-group>
           </div>
           </div>

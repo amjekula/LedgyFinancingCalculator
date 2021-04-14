@@ -1,5 +1,9 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+body{
+  font-family: "Open Sans";
+}
+
 .tab-content{
   overflow: hidden;
   background-color: white;
@@ -241,8 +245,25 @@ border-top: 0;
 }
 
 .investor-name{
-  padding-left:  55px;
-  margin-top:  -355px;
+  padding-left: 55px;
+  margin-top: -355px;
+
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  background-color: rgb(246, 254, 255);
+
+  width: 880px;
+  text-align: left;
+  font-size: 20px;
+  color: lightgray;
+}
+.investor-container{
+  padding-left: 50px;
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #bbb;
 }
 
 // .secondary-table{

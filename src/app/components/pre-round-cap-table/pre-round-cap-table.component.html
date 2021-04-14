@@ -14,7 +14,7 @@
           <br>
         </div>
 
-        <table class="table table-bordered table-condensed table-editable">
+        <table class="card-body table table-bordered table-condensed table-editable">
           <thead>
             <tr> <th *ngFor="let head of headElements" scope="col">{{head}}</th> </tr>
           </thead>
@@ -24,7 +24,7 @@
             <td class="selectable" mdbInput>
               <div class="editable-cell" [hidden]="editCell === shared.id" (click)="startEdit(shared.id)"> {{shared.stakeholder}}</div>
               <input mdbInput class="form-control" id="table-input" (click)="incrementCounter()" [hidden]="editCell !== shared.id" type="text" name="stakeholder" [(ngModel)]="shared.stakeholder" style="text-align: left;"
-                      (blur) = "stopEdit()" />
+                      (blur) = "stopEdit()"/>
             </td>
 
             <td class="selectable" mdbInput>
@@ -54,19 +54,6 @@
                 <input class="input-field" type="number" placeholder="Pool amount">
                 </div>
             </form>
-
-            <!-- <div class="col-auto">
-            <div class="input-group" *ngIf="show">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="fa fa-pie-chart fa-1x">
-                  </i>
-                </span>
-              </div>
-              <input mdbInput name="amount" placeholder="Pool amount" class="text-right form-control" type="number">
-            </div>
-              <br><br><br><br>
-            </div> -->
           </div>
         </table>
       </div>
