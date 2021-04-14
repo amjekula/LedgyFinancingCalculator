@@ -14,50 +14,44 @@ export class ScenarioTableComponent implements OnInit {
   public show:boolean = false;
   public buttonName:any = 'Show';
   public display = false;
-  public tabtitle:string = 'Unnamed Round';
-  public tabId:string = "unnamed-tab";
   public active:boolean = false;
-
-
+  public buttonStatus:string = 'Pre';
   public showText:boolean =false;
-
-  public tabStatus: string = 'active';
+  public showSubMenu:boolean = false;
+  public tabs = ['Series A'];
+  public selected = new FormControl(0);
   
   ngOnInit(): void {
   }
 
-  public showTextBtn():string{
+  public showTextBtn(){
     this.showText = !this.showText;
+
     if(this.showText == false){
-      return "Pre";
+      this.buttonStatus = "Pre";
     }else{
-      return "Post";
+      this.buttonStatus = "Post";
     }
   }
 
   public showLabel():string{
-    if(this.showText == false){
+    if(this.showText == true){
       return "Post-money valuation";
     }else{
       return "Pre-money valuation";
     }
   }
 
-  activateTab(){
-    this.show = !this.show;
-    if(this.show){
-      this.tabStatus = 'disabled';
-    }else{
-      this.tabStatus = 'active';
-    }
+  public activateButton(){
+    this.showSubMenu = !this.showSubMenu;
   }
 
-  showConvertable(){
+  public showConvertable(){
     this.active = !this.active;
     this.toggle();
   }
 
-  toggle() {
+  public toggle() {
     this.show = !this.show;
 
     //CHANGE THE NAME OF THE BUTTON.
@@ -72,17 +66,12 @@ export class ScenarioTableComponent implements OnInit {
     this.display = !this.display;
   }
 
-
-  tabs = ['Series A'];
-  selected = new FormControl(0);
-
-  addTab() {
+  public addTab() {
     this.tabs.push('Unnamed Round');
-
     this.selected.setValue(this.tabs.length - 1);
   }
 
-  removeTab(index: number) {
+  public removeTab(index: number) {
     this.tabs.splice(index, 1);
   }
 

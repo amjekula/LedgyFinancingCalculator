@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 .tab-content{
   overflow: hidden;
   background-color: white;
@@ -184,8 +186,6 @@ margin: 0;
 .example-delete-tab-button {
 margin: 8px;
 }
-
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 .version-info {
 font-size: 8pt;

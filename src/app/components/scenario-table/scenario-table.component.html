@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-  <html lang="eng">
+  <html lang="en">
 
     <head>
+      <!-- active -->
       <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,10 +25,10 @@
                   <strong>Financing Scenario</strong></div>
               </div>
             <div class="card-body">
-              <div class="tab-pane active" id="series-a" style="overflow: hidden;">
+              <div style="overflow: hidden;">
         
-            <mat-tab-group class="card tab-card" [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" oTabGroup="ontimize" [@.disabled]="true">
-                  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" style="width: fit-content; ">
+            <mat-tab-group class="card tab-card" [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" [@.disabled]="true">
+                  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" style="width: fit-content;">
                     <div  style="margin-left: 20px; margin-right: 20px;">
                       <br><br>
                         <div class="d-flex justify-content-end align-items-center mb-4" style="margin-right: 15px; ">
@@ -35,11 +36,11 @@
                             
                             <div class="d-inline dropdown ">
                               <button type="button" aria-haspopup="true"  aria-expanded="false" data-toggle="dropdown"
-                                        class="btn-primary dropdown-toggle" mat-raised-button color="primary" (click)="toggle()">
+                                        class="btn-primary dropdown-toggle" mat-raised-button color="primary" (click)="showSubMenu = !showSubMenu">
                                 <i id="add-btn" class="fa fa-plus mr-2" ></i>Add
                               </button>
-                              <div id="Overflow" *ngIf="show" tabindex="-1" class="fadeIn adjust-left adjust-top dropdown-menu-right dropdown-menu show" style="left: -178px; ">
-                                <h6 id="trigger-id" tabindex="-1" class="d-flex align-items-center dropdown-header" (click)="toggle()"> Trigger convertibles </h6>
+                              <div id="Overflow" *ngIf="showSubMenu" tabindex="-1" class="fadeIn adjust-left adjust-top dropdown-menu-right dropdown-menu show" style="left: -178px; ">
+                                <h6 id="trigger-id" (click)="toggle()" tabindex="-1" class="d-flex align-items-center dropdown-header" > Trigger convertibles </h6>
                   
                                   <button (click)="showConvertable()" id="convertible-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
                                     <small>New convertible</small>
@@ -114,7 +115,7 @@
                                     <input class="input-field form-control" type="number" placeholder="Valuation" style="height: 40px; width: 100px;">
                                       <div class="input-group-append">
                                         <button (click)="showTextBtn()" type="button" style="align-items: center; height: 40px; width: 60px;"
-                                                 class="btn-append border border-secondary-hover btn btn-secondary">{{showTextBtn()}}</button>
+                                                 class="btn-append border border-secondary-hover btn btn-secondary">{{buttonStatus}}</button>
                                       </div>
                                     </div>
                                   </form>
@@ -159,35 +160,35 @@
                               </div> 
 
 
-                              <div class="mt-4 row scenario-table" *ngIf="active">
+                              <div *ngIf="active" class="mt-4 row scenario-table">
                                 <div class="post-money mb-4 col-12 col-sm-6 col-lg-3" >
                                   <div class="callout callout-info d-flex flex-column justify-content-between h-100 m-0">
                                     <small id="" class="d-block text-muted">Post-money valuation<br> (EUR)</small>
-                                    <strong class="h5 no-wrap mr-auto" id="valuation">10,000,000.00</strong>
+                                    <strong class="h5 no-wrap mr-auto" id="valuation"><small>10,000,000.00</small></strong>
                                   </div>
                                 </div>
                                 <div class="total-round mb-4 col-12 col-sm-6 col-lg-3">
                                   <div class="callout callout-info d-flex flex-column justify-content-between h-100 m-0">
                                     <small id="" class="d-block text-muted">Total round size (EUR)</small>
-                                    <strong class="h5 no-wrap mr-auto" id="roundSize">2,000,000.00</strong>
+                                    <strong class="h5 no-wrap mr-auto" id="roundSize"><small>2,000,000.00</small></strong>
                                   </div>
                                 </div>
                                 <div class=" issue-price mb-4 col-12 col-sm-6 col-lg-3">
                                   <div class="callout callout-info d-flex flex-column justify-content-between h-100 m-0">
                                     <small id="" class="d-block text-muted">Issue price (EUR)</small>
-                                    <strong class="h5 no-wrap mr-auto" id="issuePrice">0.80</strong>
+                                    <strong class="h5 no-wrap mr-auto" id="issuePrice"><small>0.8</small></strong>
                                   </div>
                                 </div>
                                 <div class="shared-issue mb-4 col-12 col-sm-6 col-lg-3">
                                   <div class="callout callout-info d-flex flex-column justify-content-between h-100 m-0">
                                     <small id="" class="d-block text-muted" >Shares issued </small>
-                                    <strong class="h5 no-wrap mr-auto" id="sharesIssued">2,500,000</strong>
+                                    <strong class="h5 no-wrap mr-auto" id="sharesIssued"><small>2,500,000</small></strong>
                                   </div>
                                 </div>
                               </div>
 
                   
-                                <div  *ngIf="active" class="d-flex mt-3 mb-0 alert alert-secondary fade show" id="info-container" role="alert" style="margin-right: 20px; margin-left: 30px;">
+                                <div *ngIf="active" class="d-flex mt-3 mb-0 alert alert-secondary fade show" id="info-container" role="alert" style="margin-right: 20px; margin-left: 30px;">
                                   <div class="my-auto col-sm-8 col-md-9 col-xl-10" >
                                     <p class="mb-0" id="table-info">
                                       <i class="fa fa-line-chart" aria-hidden="true"></i> 
@@ -233,11 +234,12 @@
                               </ul>
                             </div>
                           </div>
+                          <br>
                   </mat-tab>
       
                   <mat-tab disabled>
                     <ng-template mat-tab-label>
-                      <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-plus align-items-center" style="color: darkgray;"></i></button>
+                      <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-plus align-items-center" style="color: darkgray; box-sizing: content-box; position: relative;"></i></button>
                       <mat-menu #menu="matMenu" >
                         <button mat-menu-item #selectAfterAdding (click)="addTab()">Financing Round</button>
                       </mat-menu>
